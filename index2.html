@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js promise</title>
+</head>
+<body>
+    <script>
+        // js promise
+        // const status = true;
+
+        // console.log('print task 1');
+
+        // const promise = new Promise(function(success , falied){
+
+        //     setTimeout(() => {
+        //     if (status) {
+        //         success('print task 2');        
+        //     }
+        //     else{
+        //         falied('error'); 
+        //     }
+        // }, 2000);
+
+        // });
+
+        // promise
+        //     .then(function(value) {
+        //         console.log(value);
+        //     })
+        //     .catch(function(err) {
+        //         console.log(err);
+        //     })
+            
+    
+        // console.log('print task 3');
+
+
+        // course enroll full process 
+
+        const paymentsuccess = true;
+        const marks = 80;
+
+        function enroll() {
+            console.log('course enrollment is progress...');
+            const promise = new Promise(function(resolve , reject){
+
+                setTimeout(() => {
+                    if (paymentsuccess) {
+                        resolve();
+                    }
+                    else{
+                        reject('your payment is falied');
+                    }
+                }, 2000);
+            });
+            return promise;
+        }
+        function progess() {
+            console.log('course on progress...');
+            const promise = new Promise(function(resolve , reject){
+
+                setTimeout(() => {
+                    if (marks>=80) {
+                        resolve();
+                    }
+                    else{
+                        reject('you could not get enough marks to get certificate.');
+                    }
+                }, 2000);
+            });
+            return promise;
+        }
+  
+        function getCertificate() {
+            console.log('preparing your certificate....');
+
+            const promise = new Promise (function(resolve , reject ) {
+
+                setTimeout(() => {
+                    console.log('congrasts. you got the certificate.....');
+
+                    
+                }, 2000);
+                
+            })
+
+            return promise;     
+        }
+      enroll()
+        .then(progess)
+        .then(getCertificate)
+        .catch(function(err) {
+            console.log(err)
+            
+        })
+
+    </script>
+    
+</body>
+</html>
